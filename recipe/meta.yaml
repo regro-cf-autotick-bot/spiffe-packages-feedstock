@@ -6,15 +6,15 @@ package:
 
 
 source:
-  - url: https://pypi.io/packages/source/s/spiffe/spiffe-{{ version }}.tar.gz
+  - url: https://pypi.org/packages/source/s/spiffe/spiffe-{{ version }}.tar.gz
     sha256: 69c686522cefb0193eae150153544312f794c8c9c1537a25695b2b54164cb717
     folder: spiffe
-  - url: https://pypi.io/packages/source/s/spiffe-tls/spiffe_tls-{{ version }}.tar.gz
+  - url: https://pypi.org/packages/source/s/spiffe-tls/spiffe_tls-{{ version }}.tar.gz
     sha256: 56497622188d81ee137c76c80eb96625b3a9c0ca466021cce6136ce2fc0ddb57
     folder: spiffe-tls
 
 build:
-  number: 0
+  number: 1
   noarch: python
 
 outputs:
@@ -27,11 +27,11 @@ outputs:
         python -m pip install . -vv --no-deps --no-build-isolation --ignore-installed --no-index
     requirements:
       host:
-        - python >=3.9
+        - python {{ python_min }}
         - pip
         - poetry-core >=1.9.0
       run:
-        - python >=3.9
+        - python >={{ python_min }}
         - grpcio >=1.62
         - cryptography >=42
         - pyjwt >=2
@@ -40,6 +40,8 @@ outputs:
         - protobuf
         - pem >=23
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - spiffe
 
@@ -52,16 +54,18 @@ outputs:
         python -m pip install . -vv --no-deps --no-build-isolation --ignore-installed --no-index
     requirements:
       host:
-        - python >=3.9
+        - python {{ python_min }}
         - pip
         - poetry-core >=1.9.0
       run:
-        - python >=3.9
+        - python >={{ python_min }}
         - pyopenssl >=24
         - spiffe
       run_constrained:
         - spiffe ={{ version }}
     test:
+      requires:
+        - python {{ python_min }}
       imports:
         - spiffetls
 
