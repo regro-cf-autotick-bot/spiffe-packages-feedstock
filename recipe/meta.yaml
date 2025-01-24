@@ -1,4 +1,4 @@
-{% set version = "0.1.3" %}
+{% set version = "0.1.5" %}
 
 package:
   name: spiffe-packages
@@ -6,11 +6,11 @@ package:
 
 
 source:
-  - url: https://pypi.io/packages/source/s/spiffe/spiffe-{{ version }}.tar.gz
-    sha256: 69c686522cefb0193eae150153544312f794c8c9c1537a25695b2b54164cb717
+  - url: https://pypi.org/packages/source/s/spiffe/spiffe-{{ version }}.tar.gz
+    sha256: 7f3c34907d4c5bce75700e3f5f60cab80c0a28a6ea8b2df7e7ed2f4c16a3579f
     folder: spiffe
-  - url: https://pypi.io/packages/source/s/spiffe-tls/spiffe_tls-{{ version }}.tar.gz
-    sha256: 56497622188d81ee137c76c80eb96625b3a9c0ca466021cce6136ce2fc0ddb57
+  - url: https://pypi.org/packages/source/s/spiffe-tls/spiffe_tls-{{ version }}.tar.gz
+    sha256: 3dd792407d3fcfae544a563897fbec61ac141afbfacb67998ad733204fe3392c
     folder: spiffe-tls
 
 build:
